@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CoverImgage: Codable, Identifiable {
+    
+    let id: Int
+    let name: String
+}
