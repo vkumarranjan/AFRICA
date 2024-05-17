@@ -10,7 +10,17 @@ import SwiftUI
 struct InsetGalleryView: View {
     var animal: Animal
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack (alignment: .center, spacing: 15){
+                ForEach(animal.gallery, id: \.self) { item in
+                    Image(item)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
+                    .cornerRadius(12)
+                }
+            }
+        }
     }
 }
 
@@ -24,7 +34,7 @@ struct InsetGalleryView_Previews: PreviewProvider {
   
     static var previews: some View {
         InsetGalleryView(animal: animals[0])
-            // .previewLayout(.sizeThatFits)
+             .previewLayout(.sizeThatFits)
                 .padding()
         
     }
